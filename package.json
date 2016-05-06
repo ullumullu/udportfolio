@@ -1,0 +1,31 @@
+{
+  "name": "udportfolio",
+  "version": "1.0.0",
+  "description": "Webp performance project for udacity course cricital rendering path.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ullumullu/udportfolio.git"
+  },
+  "keywords": [
+    "udacity",
+    "webperformance",
+    "finalproject"
+  ],
+  "author": "Sven Sterbling",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ullumullu/udportfolio/issues"
+  },
+  "homepage": "https://github.com/ullumullu/udportfolio#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-pagespeed": "^2.0.0",
+    "load-grunt-tasks": "^3.5.0",
+    "ngrok": "^2.1.8"
+  }
+}

@@ -23,7 +23,9 @@
   "homepage": "https://github.com/ullumullu/udportfolio#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.1",
     "grunt-pagespeed": "^2.0.0",
     "load-grunt-tasks": "^3.5.0",
     "ngrok": "^2.1.8"

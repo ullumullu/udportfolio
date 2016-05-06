@@ -8,8 +8,32 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   // Grunt configuration
-  grunt.initConfig(
-    {
+  grunt.initConfig({
+      cssmin: {
+        target: {
+          files: [{
+            expand: true,
+            cwd: 'css',
+            src: ['*.css', '!*.min.css'],
+            dest: 'css',
+            ext: '.min.css'
+          },
+          {
+            expand: true,
+            cwd: 'views/css',
+            src: ['*.css', '!*.min.css'],
+            dest: 'views/css',
+            ext: '.min.css'
+          }]
+        }
+      },
+      uglify: {
+        my_target: {
+          files: {
+            'js/perf.min.js': ['js/perfmatters.js']
+          }
+        }
+      },
       imagemin: {                          // Task
         dynamic: {                         // Another target
           files: [{
@@ -19,27 +43,25 @@ module.exports = function(grunt) {
             dest: 'img/'                  // Destination path prefix
           }]
         }
-      }
-    },
-    {
-    pagespeed: {
-      options: {
-        nokey: true,
-        locale: "en_GB",
-        threshold: 40
       },
-      local: {
+      pagespeed: {
         options: {
-          strategy: "desktop"
-        }
-      },
-      mobile: {
-        options: {
-          strategy: "mobile"
+          nokey: true,
+          locale: "en_GB",
+          threshold: 40
+        },
+        local: {
+          options: {
+            strategy: "desktop"
+          }
+        },
+        mobile: {
+          options: {
+            strategy: "mobile"
+          }
         }
       }
-    }
-  });
+    });
 
   // Register customer task for ngrok
   grunt.registerTask('psi-ngrok', 'Run pagespeed with ngrok', function() {
@@ -57,7 +79,7 @@ module.exports = function(grunt) {
     });
   });
 
-  grunt.registerTask('build', ['imagemin']);
+  grunt.registerTask('build', ['imagemin', 'uglify', 'cssmin']);
 
   // Register default tasks
   grunt.registerTask('default', ['psi-ngrok']);
